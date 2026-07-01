@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدي الأرقام الأسطوري 🧠</title>
+    <style>
+        body { background: #020617; color: white; font-family: sans-serif; text-align: center; padding: 40px; }
+        .container { background: #0f172a; padding: 40px; border-radius: 20px; border: 2px solid #ec4899; max-width: 500px; margin: 0 auto; box-shadow: 0 0 20px rgba(236, 72, 153, 0.3); }
+        h1 { color: #ec4899; margin-bottom: 20px; font-size: 30px; }
+        input { padding: 12px; font-size: 18px; border-radius: 8px; border: 2px solid #334155; background: #1e293b; color: white; width: 80%; margin-bottom: 20px; text-align: center; }
+        button { padding: 12px 30px; font-size: 18px; background: linear-gradient(45deg, #ec4899, #f43f5e); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { transform: scale(1.05); box-shadow: 0 0 15px #ec4899; }
+        #result { font-size: 20px; font-weight: bold; margin-top: 20px; }
+        .ad-box { background: #1e293b; padding: 15px; margin: 25px auto; max-width: 300px; border-radius: 10px; border: 1px solid #475569; color: #a1a1aa; }
+        .back-btn { display: inline-block; margin-top: 30px; padding: 10px 20px; background-color: #334155; color: #38bdf8; text-decoration: none; font-weight: bold; border-radius: 8px; border: 1px solid #0284c7; transition: 0.3s; }
+        .back-btn:hover { background-color: #0284c7; color: white; box-shadow: 0 0 10px #38bdf8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 تحدي تخمين الرقم السري الملعون 🎮</h1>
+        <div class="ad-box">💰 إعلان يظهر قبل اللعب 💰</div>
+        <p style="margin-bottom: 20px; color: #94a3b8;">الكمبيوتر اختار رقم سري من 1 إلى 50، هل تقدر تخمنه?</p>
+        <input type="number" id="userGuess" placeholder="اكتب رقمك من 1 لـ 50">
+        <br>
+        <button onclick="playGame()">أطلق التخمين ⚡</button>
+        <p id="result"></p>
+        <div class="ad-box">💰 إعلان سفلي لزيادة الدولارات 💰</div>
+        
+        <!-- زر العودة لصفحة محمد المطور -->
+        <a href="mohamed.html" class="back-btn">⬅️ العودة لمنصة محمد الرئيسية</a>
+    </div>
+
+    <script>
+        const computerNum = Math.floor(Math.random() * 50) + 1;
+        function playGame() {
+            const guess = document.getElementById("userGuess").value;
+            const res = document.getElementById("result");
+            if (guess == computerNum) { res.innerHTML = "🎉 أسطورة! خمنت الرقم الصح كسبت التحدي!"; res.style.color = "#10b981"; }
+            else if (guess > computerNum) { res.innerHTML = "❌ الرقم كبير جداً! انزل برقم أصغر!"; res.style.color = "#ef4444"; }
+            else { res.innerHTML = "❌ الرقم صغير جداً! ارفع برقم أكبر!"; res.style.color = "#ef4444"; }
+        }
+    </script>
+</body>
+</html>
