@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الوزن والرشاقة ⚖️</title>
+    <style>
+        body { background: #020617; color: white; font-family: sans-serif; text-align: center; padding: 40px; }
+        .box { background: #0f172a; padding: 40px; border-radius: 20px; border: 2px solid #10b981; max-width: 500px; margin: 0 auto; box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+        h1 { color: #10b981; margin-bottom: 20px; font-size: 28px; }
+        .form-group { margin: 20px 0; font-size: 18px; }
+        input { padding: 12px; border-radius: 8px; border: 2px solid #334155; background: #1e293b; color: white; width: 70%; text-align: center; font-size: 16px; }
+        button { padding: 12px 30px; font-size: 18px; background: linear-gradient(45deg, #10b981, #059669); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; margin-top: 10px; }
+        button:hover { transform: scale(1.05); box-shadow: 0 0 15px #10b981; }
+        h2 { margin-top: 25px; color: #38bdf8; }
+        .ad-box { background: #1e293b; padding: 15px; margin: 25px auto; max-width: 300px; border-radius: 10px; border: 1px solid #475569; color: #a1a1aa; }
+        .back-btn { display: inline-block; margin-top: 30px; padding: 10px 20px; background-color: #1e293b; color: #10b981; text-decoration: none; font-weight: bold; border-radius: 8px; border: 1px solid #059669; transition: 0.3s; }
+        .back-btn:hover { background-color: #10b981; color: white; box-shadow: 0 0 10px #10b981; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>🏃‍♂️ حاسبة الرشاقة والوزن المثالي المطور 🏃‍♂️</h1>
+        <div class="ad-box">💰 مساحة إعلانية - دولارات 💰</div>
+        
+        <div class="form-group">
+            <label>الوزن الحالي (بالكيلوجرام):</label><br><br>
+            <input type="number" id="weight" placeholder="مثال: 60">
+        </div>
+        
+        <div class="form-group">
+            <label>الطول الحالي (بالسنتيمتر):</label><br><br>
+            <input type="number" id="height" placeholder="مثال: 165">
+        </div>
+        
+        <button onclick="calculateBMI()">احسب مؤشر جسمك ⚡</button>
+        
+        <h2 id="bmiResult"></h2>
+        
+        <div class="ad-box">💰 مساحة إعلانية سفلية 💰</div>
+        
+        <!-- زر العودة لصفحة محمد الرئيسية بدون أي عيوب -->
+        <a href="mohamed.html" class="back-btn">⬅️ العودة لمنصة محمد الرئيسية</a>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const w = document.getElementById("weight").value;
+            const h = document.getElementById("height").value / 100;
+            if(w > 0 && h > 0) {
+                const bmi = (w / (h * h)).toFixed(1);
+                let status = "";
+                if(bmi < 18.5) { status = " (وزنك أقل من الطبيعي، محتاج تغذية جماعية! 🍏)"; }
+                else if(bmi >= 18.5 && bmi <= 24.9) { status = " (وزنك مثالي ورشيق جداً، عاش يا بطل! 🔥)"; }
+                else { status = " (وزنك زايد شوية، محتاج تقلل حلويات وتلعب رياضة! 🏃‍♂️)"; }
+                
+                document.getElementById("bmiResult").innerHTML = "مؤشر كتلة جسمك هو: " + bmi + "<br><span style='font-size:16px; color:white;'>" + status + "</span>";
+            } else {
+                document.getElementById("bmiResult").innerHTML = "الرجاء إدخال أرقام صحيحة! ❌";
+            }
+        }
+    </script>
+</body>
+</html>
